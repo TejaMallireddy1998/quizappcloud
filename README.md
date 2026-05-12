@@ -1,10 +1,18 @@
 # 🎯 Quizzr — Microservices Quiz Application with JWT Authentication
 
-This project is a full-stack quiz application built using Spring Boot microservices, Eureka service discovery, Spring Cloud Gateway and a React frontend with Framer Motion animations.
+
+🌐 **[Live Demo →](https://quizapp-frontend-sooty.vercel.app)** &nbsp;&nbsp;|&nbsp;&nbsp; 💻 **[Code](https://github.com/TejaMallireddy1998/quizappcloud)**
+
+> ⚠️ First request may take 30-60 seconds — free-tier Render services wake from sleep on cold start.
+
+---
+
+This project is a full-stack quiz application built using **Spring Boot microservices**, **Spring Cloud Gateway**, and a **React frontend with Framer Motion animations**. The backend is deployed across multiple Render services with a Neon PostgreSQL database, and the frontend is hosted on Vercel.
 
 The application allows users to register, take timed quizzes, and review per-question results. Administrators can create quizzes and manage questions through a role-protected admin panel.
 
-The system is deployed using Docker Compose, with each service running as an independent container communicating over a shared Docker network. Authentication is centralized at the API Gateway using JWT, while role-based access is enforced inside each microservice.
+The system runs locally via **Docker Compose** with full Eureka service discovery, and in the cloud via **direct service URLs** wired through environment variables.
+
 
 ## 🚀 Key Features
 
@@ -69,6 +77,26 @@ All services register and discover each other here
 - Docker
 - Docker Compose
 - Maven
+
+## ☁️ Deployment
+
+The application is deployed to free-tier cloud services:
+
+| Component | Platform | URL |
+|---|---|---|
+| Frontend | Vercel | https://quizapp-frontend-sooty.vercel.app |
+| API Gateway | Render | https://quizapp-gateway.onrender.com |
+| Auth Service | Render | https://quizappauth.onrender.com |
+| Question Service | Render | https://quizappcloud.onrender.com |
+| Quiz Service | Render | https://quizapp-quiz.onrender.com |
+| Database | Neon | 3 PostgreSQL databases (authdb, questiondb, quizdb) |
+
+The codebase supports **two deployment modes via Spring profiles**:
+
+- **Default (local):** Uses Eureka for service discovery, runs entirely via `docker compose up`
+- **Cloud profile:** Disables Eureka, uses direct service URLs from environment variables, suitable for platforms without internal networking
+
+This dual-mode approach keeps local development simple while enabling deployment to any cloud platform with separate web services.
 
 ##  📦 Prerequisites
 Before running the application, ensure you have:
