@@ -1,0 +1,10 @@
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+# Question service URL set by Render env var
+  services:
+    question-service:
+      url: ${QUESTION_SERVICE_URL}
