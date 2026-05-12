@@ -5,6 +5,6 @@ eureka:
     fetch-registry: false
 
 # Question service URL set by Render env var
-  services:
-    question-service:
-      url: ${QUESTION_SERVICE_URL}
+services:
+  question-service:
+    url: ${QUESTION_SERVICE_URL}
