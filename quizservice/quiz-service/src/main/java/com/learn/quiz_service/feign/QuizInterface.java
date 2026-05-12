@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("QUESTION-SERVICE")
+@FeignClient(name = "question-service", url = "${services.question-service.url:}")
 public interface QuizInterface {
 
     // NOT DECLARING, JUST DEFINING METHODS
